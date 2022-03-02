@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boules{% endblock %}
+{% block body %}
+    <h1 class="text-center">Boules en Vente</h1>
+    <table class="table table-white table-striped table-hover text-center">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th>ID Boule</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Promotion</th>
+                <th>Photo</th>
+            </tr>
+        </thead>
+    <tbody>
+
+    {% for boule in boules %}
+    <tr>
+        <td>{{boule.id}}</td>
+        <td>{{boule.titre}}</td>
+        <td>{{boule.description}}</td>
+        <td>{{boule.prix}}</td>
+        <td>{{boule.promotion}}</td>
+        <td>{{boule.photo}}</td>
+
+        {# <td><a href="{{ path('boule_modifier', {'id': boule.id}) }}"> Modifier</a></td>
+        <td><a href="{{ path('boule_supprimer', {'id': boule.id}) }}">Supprimer</a></td> #}
+    </tr>
+    {% endfor %}
+
+            </tbody>
+        </table>
+<div class="row justify-content-center m-2">
+    <a href="{{ path('boule_ajouter') }}" class="btn btn-success p-2 col-3">Ajouter des boules</a>
+</div>
+<div class="row justify-content-center m-2">
+    <a href="{{ path('boule') }}" >Retour aux boules</a>
+</div>
+</div>
+<div class="row justify-content-center m-2">
+    <a href="{{ path('accueil') }}" >Retour à l'accueil</a>
+</div>
+{% for type, message  in app.flashes %}
+    <div class='alert alert-{{type}} col-6 mx-auto text-center'>
+            {{ message.0 }}
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Noel | Produits | {% endblock %}
+
+{% block body %}
+        <div class="d-flex justify-content-center">
+<div>
+
+                <img class="rounded-circle"  src="{{ asset('images/') ~ boule.photo }}" alt="">
+
+                <h1>{{boule.titre}}</h1>
+
+                <div class="soustitre mb-2">{{boule.description}}</div>
+
+                <div class="bg-warning col-12 p-1 mt-3 rounded text-center">
+                        Super promotion de 20%<br>
+                        Ne ratez pas cette occasion
+                </div>
+
+                <button class="btn btn-success col-6">
+                        <div class="bg-success d-flex justify-content-evenly">
+                                <div class="text-light">
+                                        J'achette
+                                </div>
+                                <div class=" rounded col-5 bg-warning text-danger fw-bold">
+                                        {{boule.prix + boule.prix*(boule.promotion)/100}}€
+                                </div>
+                        </div>
+                </button>
+</div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Noel | Produits{% endblock %}
+
+        {% block body %}
+        <div class="titre">
+            <h1>Bienvenue sur le site de Noël & Cie</h1>
+            <div class="soustitre mb-5">Les meilleurs produits du marché</div>
+        </div>
+        
+        <div class="photos d-flex justify-content-evenly">
+            <div class="produit d-flex">
+
+                {% for boule in boules %}
+                    
+                    <a href="{{path('produit', {
+                        'id':boule.id,
+                        'titre':boule.titre,
+                        'photo':boule.photo,
+                        'boule':boule
+                        }) }}"><img class="rounded-circle"  src="{{ asset('images/') ~ boule.photo  }}" alt=""></a>
+                {% endfor %}
+
+                </div>
+          
+        </div>
+        {% endblock %}

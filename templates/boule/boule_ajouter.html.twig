@@ -1,0 +1,38 @@
+{% extends 'boule/index.html.twig' %}
+
+{% block title %}Ajouter une Boule{% endblock %}
+
+
+{% block body %}
+
+<h1 class="text-center">Ajouter une catégorie</h1>
+<div class="col-md-4 mx-auto">
+    {{ form_start(formBoule) }}
+    <div class="col-md-4 mx-auto">
+        {{ form_label(formBoule.titre) }}
+        {{ form_widget(formBoule.titre) }}
+    </div>
+    <div class="col-md-4 mx-auto">
+        {{ form_label(formBoule.description) }}
+        {{ form_widget(formBoule.description) }}
+    </div>
+
+    <div class="col-md-4 mx-auto">
+        {{ form_label(formBoule.prix) }}
+        {{ form_widget(formBoule.prix) }}
+    </div>
+
+    <div class="col-md-4 mx-auto">
+        {{ form_label(formBoule.promotion) }}
+        {{ form_widget(formBoule.promotion) }}
+    </div>
+
+    <div class="col-md-4 mx-auto">
+        {{ form_label(formBoule.photo) }}
+        {{ form_widget(formBoule.photo) }}
+        <button class="btn btn-success mt-3">Ajouter</button>
+    </div>
+    {{ form_end(formBoule) }}
+</div>
+
+{% endblock %}
